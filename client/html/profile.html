@@ -1,0 +1,70 @@
+<template name="Profile">
+    {{#if currentUser}}
+    <div id="profile-wrap">
+        <center>
+            {{#with UserImages}}
+            <img src="{{image}}" class="profile-img">
+            {{else}}
+            <img src="github.svg" class="profile-img">
+            <form class="edit-profile" enctype="multipart/form-data">
+                <label for="profileImage">Choose Profile Images</label>
+                <span id="filename"></span>
+                <input type ="file" name="profileImage" id="profileImage" class="  black profileImage">
+            <br>
+            <br>
+                <button type="submit" value="Upload photo" id="Profile-btn" class="btn btn-sml btn-primary">Upload photo</button>
+            </form>
+            {{/with}}
+            <br>
+            <img src="github.svg" class="profile-img">
+            <h1 class="username">{{username}}</h1>
+            <h3>{{email}}</h3>
+            <div class="" id="">
+                <img src="laugh.png" class="profile-smiley" id="laugh">
+                <img src="frown.png" class="profile-smiley" id="frown">
+                <img src="puke.png" class="profile-smiley" id="puke">
+            </div> 
+            <div class="score" id="score">
+                <h3 class="count red block">{{userlaughscore}}</h3>
+                <h3 class="count yellow block">{{userfrownscore}}</h3>
+                <h3 class="count green block">{{userpukescore}}</h3>
+            </div>
+        </center>
+    </div>
+    {{#each userjokes}}
+    <div class="joke">
+        <div class="row">
+        <div class=".col-sm-6 .col-md-5 .col-lg-6" id="info">
+            <h1 class="joke-title">{{jokename}}</h1>
+            <p class="meta">Author :{{author}} </p>
+            <p class="meta">Posten on :{{date}}</p>
+        </div>
+        <div class=".col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0 " id="vote">
+            <img src="laugh.png" class="smiley" id="laugh">
+            <img src="frown.png" class="smiley" id="frown">
+            <img src="puke.png" class="smiley" id="puke">
+        </div>
+        <div class="row" id="score">
+            <h3 class="count red block">{{userlaughscore}}</h3>
+            <h3 class="count yellow block">{{userfrownscore}}</h3>
+            <h3 class="count green block">{{userpukescore}}</h3>
+        </div>
+        <p class="regular joke-desc">"{{jokepost}}"</p>
+    </div>
+  
+    <button class="btn btn-sml btn-danger" id= "delete-joke">Delete Joke</button>
+   </div>
+   {{else}}
+   <h3>no jokes to display</h3>
+   {{/each}} 
+ <script type="text/javascript">
+ $(function(){
+ $("#profileImage:file").change(function(){
+     var fileName=$(this).val();
+     $("span").text(fileName);
+     $("label").hide();
+ });
+ });
+ </script>
+ {{/if}}
+</template>

@@ -1,0 +1,25 @@
+<template name="jokeform">
+    {{#if currentUser}}
+    <div id="jokeForm-wrap">
+        <center>
+          <form class="joke-post">
+              <h2 class="jokeform-heading">post a joke</h2>
+              <label for="jokename" class="sr-only">joke name</label>
+              <input type="text" name="jokename" id="jokename" class="form-control" placeholder="jokename" maxlength="40"> 
+          <label for="jokepost" class="sr-only">joke post</label>
+          <input type="text" name="jokepost" id="jokepost" class="form-control" placeholder="Break A leg!" maxlength="140">
+          <button class="btn btn-lg btn-success btn block" type="submit">post Joke</button>
+            </form>
+    </center>
+    </div>
+    {{else}}
+    <div id="jokeForm-wrap">
+        <center>
+          <form class="joke-post">
+              <h2 class="joke-signin-heading">Log in to post A joke</h2>
+           <a href="/" class="btn btn-md btn-primary" id="login-redirect">login</a>
+            </form>
+    </center>
+    </div>
+    {{/if}}
+</template>

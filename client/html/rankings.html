@@ -1,0 +1,46 @@
+<template name="rankings">
+    {{#if currentUser}}
+    <div id="profile-wrap">
+        <center>
+            <h1>the laugh king</h1>
+            <img src="laugh.png" class="profile-smiley" id="laugh">
+            <h3>{{laughking.username}}</h3>
+            <div>
+                <img src="laugh.png" class="profile-smiley" id="laugh">
+            </div>
+            <div class="score" id="">
+                <h3 class="count red block">{{laughking.profile.laughscore}}</h3>
+            </div>          
+        </center>
+    </div>
+    <div id="profile-wrap">
+        <center>
+            <h1>the frown king</h1>
+            <img src="frown.png" class="profile-smiley" id="laugh">
+            <h3>{{frownking.username}}</h3>
+            <div>
+                <img src="frown.png" class="profile-smiley" id="laugh">
+            </div>
+            <div class="score" id="">
+                <h3 class="count red block">{{frownking.profile.frownscore}}</h3>
+            </div>          
+        </center>
+    </div>
+    <div id="profile-wrap">
+        <center>
+            <h1>the puke king</h1>
+            <img src="puke.png" class="profile-smiley" id="laugh">
+            <h3>{{pukeking.username}}</h3>
+            <div>
+                <img src="puke.png" class="profile-smiley" id="laugh">
+            </div>
+            <div class="score" id="">
+                <h3 class="count red block">{{pukeking.profile.pukescore}}</h3>
+            </div>          
+        </center>
+    </div>
+    {{else}}
+  <center> <h3> You need to login for score <a href="/">login</a></h3></center>
+ 
+    {{/if}}
+</template>
